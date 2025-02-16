@@ -4,38 +4,32 @@ public class BallController : MonoBehaviour
 {
     public Rigidbody ballRB;
     [SerializeField] private Transform ballAnchor;
-    private bool isBallLaunched = false;
-    [SerializeField] private float force = 20f; // Increased default force
+    [SerializeField] private Transform launchIndicator;
+    private bool isBallLaunched;
+    [SerializeField] private float force = 1f;
     [SerializeField] private InputManager inputManager;
-
-    private void Start()
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
     {
         ballRB = GetComponent<Rigidbody>();
-        
-        if (inputManager == null)
-        {
-            Debug.LogError("InputManager not assigned in the Inspector!");
-            return;
-        }
-
         inputManager.OnSpacePressed.AddListener(LaunchBall);
-
         transform.parent = ballAnchor;
         transform.localPosition = Vector3.zero;
         ballRB.isKinematic = true;
+        
     }
-
-    private void LaunchBall()
-    {
+    private void LaunchBall(){
         if (isBallLaunched) return;
-
         isBallLaunched = true;
-        transform.parent = null; // Detach from anchor
+        transform.parent = null;
         ballRB.isKinematic = false;
-
-        // Log direction and apply force
-        Debug.Log($"Ball forward direction: {transform.forward}");
-        ballRB.AddForce(transform.forward * force, ForceMode.VelocityChange); // Use VelocityChange
-        Debug.Log("Ball launched!");
+        ballRB.AddForce(transform.forward * force, ForceMode.Impulse);
+        ballRB.AddForce(launchIndicator.forward * force, ForceMode.Impulse);
+        launchIndicator.gameObject.SetActive(false);
+            }
+    // Update is called once per frame
+    void Update()
+    {
+        
     }
 }
