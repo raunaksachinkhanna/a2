@@ -668,7 +668,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7135478258043350234, guid: 8c1291696303348109bb4619c828cdc9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 565301671}
   m_SourcePrefab: {fileID: 100100000, guid: 8c1291696303348109bb4619c828cdc9, type: 3}
 --- !u!4 &374143316 stripped
 Transform:
@@ -900,7 +903,7 @@ MonoBehaviour:
   ballRB: {fileID: 501501931}
   ballAnchor: {fileID: 107620300}
   launchIndicator: {fileID: 138555651}
-  force: 30
+  force: 20
   inputManager: {fileID: 2000190312}
 --- !u!54 &501501931
 Rigidbody:
@@ -1019,6 +1022,27 @@ Transform:
   - {fileID: 138555651}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &565301668 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7135478258043350234, guid: 8c1291696303348109bb4619c828cdc9, type: 3}
+  m_PrefabInstance: {fileID: 374143315}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &565301671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 565301668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f8b4bab1f09e4294bcf4b44aa6e4afe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnPinFall:
+    m_PersistentCalls:
+      m_Calls: []
+  isPinFallen: 0
 --- !u!1 &592845979
 GameObject:
   m_ObjectHideFlags: 0
